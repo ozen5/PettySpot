@@ -1,0 +1,122 @@
+@use "../styles/variables" as *;
+
+.photo-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.photo-field__label {
+  margin: 0;
+  font-weight: 600;
+}
+
+.photo-field__hint {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: $font-size-small;
+}
+
+.photo-field__body {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.photo-field__body--filled {
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  align-items: center;
+  padding: 0.75rem;
+  border: 1px solid $color-line;
+  border-radius: $radius-md;
+  background-color: $color-surface-raised;
+}
+
+.photo-field__preview {
+  display: block;
+  width: 100%;
+  max-height: 11rem;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: $radius-sm;
+  background-color: $color-surface;
+}
+
+.photo-field__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+// Visually hidden but focusable: the styled label shows its focus state.
+.photo-field__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.photo-field__pick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: $tap-target;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid $color-lilac;
+  border-radius: $radius-pill;
+  background-color: $color-surface-raised;
+  color: $color-text;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.photo-field__pick::before {
+  content: "+";
+  color: $color-accent;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.photo-field__body--filled .photo-field__pick::before {
+  content: "↻";
+}
+
+.photo-field__pick:hover {
+  border-color: $color-accent;
+}
+
+.photo-field__input:focus-visible + .photo-field__pick {
+  outline: 3px solid $color-focus;
+  outline-offset: 3px;
+}
+
+.photo-field__remove {
+  min-height: $tap-target;
+  padding: 0 0.25rem;
+  border: 0;
+  background: transparent;
+  color: $color-error;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+@media (max-width: 30rem) {
+  .photo-field__body--filled {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-field__preview {
+    max-height: 14rem;
+  }
+}
+
+.photo-field__actions {
+  position: relative;
+}

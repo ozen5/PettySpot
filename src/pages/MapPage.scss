@@ -1,0 +1,466 @@
+@use "../styles/variables" as *;
+
+.map-page {
+  min-height: 100vh;
+}
+
+.map-page__main {
+  width: min(84rem, 100%);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 2rem) $page-gutter 3rem;
+}
+
+// Title + filters in one compact band so the map starts high on the screen.
+.map-page__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.map-page__title {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  line-height: 1.05;
+  letter-spacing: $letter-spacing-display;
+}
+
+.map-page__notice {
+  max-width: 40rem;
+  margin-top: 0.5rem;
+  color: $color-text-muted;
+  font-size: $font-size-small;
+}
+
+.map-page__filters {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 1px solid $color-line;
+  border-radius: $radius-pill;
+  background-color: $color-surface-raised;
+}
+
+.map-page__filter {
+  min-height: $tap-target;
+  padding: 0.45rem 1.1rem;
+  border: 0;
+  border-radius: $radius-pill;
+  background-color: transparent;
+  color: $color-text;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.map-page__filter:hover {
+  background-color: $color-accent-soft;
+}
+
+.map-page__filter--current,
+.map-page__filter--current:hover {
+  background-color: $color-accent;
+  color: $color-on-accent;
+}
+
+.map-page__status {
+  max-width: 48rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid $color-accent;
+  border-radius: $radius-sm;
+  background-color: $color-accent-soft;
+  font-weight: 500;
+}
+
+.map-page__status--found {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.map-page__found-illustration {
+  flex: none;
+  width: 6.5rem;
+  border-radius: $radius-md;
+}
+
+.map-page__layout {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  min-width: 0;
+}
+
+.map-page__map-area {
+  min-width: 0;
+}
+
+// The map is the centre of the page.
+.map-page__map {
+  overflow: hidden;
+  border: 1px solid $color-line;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.map-page__map .search-map.leaflet-container {
+  height: clamp(20rem, 56vh, 34rem);
+}
+
+.map-page__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1.1rem;
+  margin-top: 0.75rem;
+  color: $color-text-muted;
+  font-size: $font-size-caption;
+}
+
+.map-page__legend-title {
+  font-weight: 700;
+}
+
+.map-page__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+// Marker shapes mirror the map pins: circle = original point, squares = eyewitness reports.
+.map-page__shape {
+  flex: none;
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.map-page__shape--origin {
+  border-radius: 50%;
+  background-color: $color-accent;
+}
+
+.map-page__shape--report {
+  border-radius: 2px;
+  background-color: $color-lilac;
+  box-shadow: inset 0 0 0 2px $color-accent;
+}
+
+.map-page__shape--witness {
+  border-radius: 2px;
+  background-color: $color-accent;
+  box-shadow: 0 0 0 2px $color-lilac;
+}
+
+.map-page__side {
+  display: grid;
+  align-content: start;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.map-page__prompt {
+  padding: 1rem 1.1rem;
+  border: 1px dashed $color-lilac;
+  border-radius: $radius-md;
+  color: $color-text-muted;
+}
+
+// Selected card + its points read as one story.
+.map-page__story {
+  display: grid;
+  gap: 0.6rem;
+  padding: clamp(1.1rem, 2.5vw, 1.4rem);
+  border: 1px solid $color-line;
+  border-radius: $radius-lg;
+  background-color: $color-surface-raised;
+  box-shadow: $shadow-card;
+}
+
+.map-page__story-label {
+  color: $color-accent-strong;
+  font-size: $font-size-caption;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.map-page__story-title {
+  font-size: clamp(1.45rem, 2.4vw, 1.75rem);
+  line-height: 1.15;
+}
+
+.map-page__story-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.map-page__tag {
+  padding: 0.15rem 0.6rem;
+  border-radius: $radius-pill;
+  background-color: $color-surface;
+  color: $color-text-muted;
+  font-size: $font-size-caption;
+  font-weight: 600;
+}
+
+.map-page__tag--session {
+  background-color: $color-accent-soft;
+  color: $color-accent-strong;
+}
+
+.map-page__story-summary {
+  color: $color-text;
+}
+
+.map-page__story-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  color: $color-text-muted;
+  font-size: $font-size-small;
+}
+
+.map-page__selected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.map-page__confirm {
+  display: grid;
+  gap: 0.5rem;
+  flex-basis: 100%;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid $color-accent;
+  border-radius: $radius-sm;
+  background-color: $color-accent-soft;
+}
+
+.map-page__confirm-title,
+.map-page__confirm-text {
+  margin: 0;
+}
+
+.map-page__confirm-title {
+  font-weight: 700;
+}
+
+.map-page__confirm-text {
+  color: $color-text-muted;
+  font-size: $font-size-small;
+}
+
+.map-page__confirm-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.map-page__origin {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: $radius-md;
+  background-color: $color-accent-soft;
+}
+
+.map-page__origin .map-page__shape,
+.map-page__sighting .map-page__shape {
+  margin-top: 0.35rem;
+}
+
+.map-page__origin-kind,
+.map-page__sighting-kind {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.map-page__sightings-title {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.map-page__sightings-order,
+.map-page__sighting-meta,
+.map-page__sighting-note {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: $font-size-small;
+}
+
+.map-page__sightings {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Separate items with no connecting line: reports are not a route.
+.map-page__sighting {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px dashed $color-lilac;
+  border-radius: $radius-md;
+  background-color: $color-background;
+}
+
+.map-page__sighting--new {
+  border: 2px solid $color-accent;
+}
+
+.map-page__sighting-body {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.map-page__sighting-text {
+  margin: 0.15rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.map-page__sighting-photo {
+  display: block;
+  width: min(100%, 12rem);
+  height: auto;
+  margin-top: 0.35rem;
+  border-radius: $radius-sm;
+}
+
+// Compact list of all cards: one line each, details live in the story above.
+.map-page__list-title {
+  font-size: 1.1rem;
+}
+
+.map-page__empty {
+  margin-top: 0.75rem;
+  color: $color-text-muted;
+}
+
+.map-page__empty-illustration {
+  max-width: 12rem;
+  margin-bottom: 0.75rem;
+}
+
+.map-page__cases {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.map-page__case {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid $color-line;
+  border-radius: $radius-md;
+  background-color: $color-surface-raised;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.map-page__case:hover {
+  border-color: $color-lilac;
+}
+
+.map-page__case--current,
+.map-page__case--current:hover {
+  border-color: $color-accent;
+  background-color: $color-accent-soft;
+  box-shadow: inset 4px 0 0 $color-accent;
+}
+
+.map-page__case-body {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.map-page__case-title {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.map-page__case-meta {
+  color: $color-text-muted;
+  font-size: $font-size-caption;
+}
+
+.map-page__case-status {
+  color: $color-accent-strong;
+  font-weight: 600;
+}
+
+.map-page__case-count {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.35rem;
+  color: $color-text-muted;
+  font-size: $font-size-small;
+  font-weight: 600;
+}
+
+.map-page__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// Phones: filters become a full-width three-part segmented control.
+@media (max-width: 40rem) {
+  .map-page__filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .map-page__filter {
+    padding-inline: 0.4rem;
+    font-size: $font-size-small;
+  }
+}
+
+// Wide screens: map left (sticky), story + list right.
+@media (min-width: 64rem) {
+  .map-page__layout {
+    grid-template-columns: minmax(0, 1fr) 25rem;
+    align-items: start;
+  }
+
+  .map-page__map-area {
+    position: sticky;
+    top: calc(#{$header-height} + 1rem);
+  }
+
+  .map-page__map .search-map.leaflet-container {
+    height: calc(100vh - #{$header-height} - 6rem);
+    min-height: 28rem;
+    max-height: 46rem;
+  }
+
+  .map-page__side {
+    max-height: calc(100vh - #{$header-height} - 2rem);
+    overflow: auto;
+    padding-right: 0.25rem;
+  }
+}

@@ -1,0 +1,55 @@
+// PettySpot design tokens — the single source of colors, type, spacing and shape.
+
+// Color: near-white lavender base, dark indigo text, expressive purple accent.
+$color-background: #f8f6fd;
+$color-surface: #efeafb;
+$color-surface-raised: #ffffff;
+$color-text: #1d1640;
+$color-text-muted: #4a4370;
+$color-accent: #5b3fd6;
+$color-accent-strong: #4329b0;
+$color-accent-soft: #e6dffc;
+$color-lilac: #cbbcf5;
+$color-line: #e2dcf3;
+$color-focus: #1d1640;
+$color-focus-on-dark: #f6f2fb;
+$color-selection: #ddd4f4;
+$color-on-accent: #ffffff;
+$color-on-accent-muted: #ddd5f7;
+// Form errors: deep berry, readable on the lavender base (contrast > 7:1).
+$color-error: #8a1c43;
+$color-error-soft: #fbe9ef;
+// The one expressive dark block per page.
+$color-deep: #23164f;
+$color-deep-raised: #322168;
+
+// Type: confident sans-serif for both body and display.
+// System stacks (no web fonts): every entry ships Cyrillic incl. Kazakh letters (ә ғ қ ң ө ұ ү һ і).
+$font-family-base: system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+$font-family-display: system-ui, -apple-system, "Segoe UI Variable Display", "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+$font-size-body: 1.125rem;
+$font-size-small: 0.95rem;
+$font-size-caption: 0.82rem;
+$line-height-body: 1.6;
+$font-weight-display: 700;
+$letter-spacing-display: -0.035em;
+
+// Layout and spacing.
+$page-width: 72rem;
+$page-gutter: clamp(1.25rem, 4vw, 2.5rem);
+$space-section: clamp(4rem, 9vw, 7rem);
+$header-height: 4.25rem;
+
+// Shape and depth.
+$radius-sm: 0.5rem;
+$radius-md: 0.875rem;
+$radius-lg: 1.5rem;
+$radius-pill: 999px;
+$tap-target: 2.75rem; // 44px minimum touch target
+$shadow-card: 0 1px 2px rgba(29, 22, 64, 0.06), 0 18px 40px -18px rgba(29, 22, 64, 0.28);
+
+// Breakpoints.
+$bp-header: 60rem;
+$bp-wide: 56rem;

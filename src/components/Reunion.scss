@@ -1,0 +1,49 @@
+@use "../styles/variables" as *;
+
+.reunion__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  width: min(#{$page-width}, 100%);
+  margin-inline: auto;
+  padding: $space-section $page-gutter;
+}
+
+.reunion__illustration {
+  box-shadow: $shadow-card;
+}
+
+.reunion__title {
+  max-width: 12em;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: $letter-spacing-display;
+  text-wrap: balance;
+}
+
+.reunion__text {
+  max-width: 32rem;
+  margin-top: 1.1rem;
+  color: $color-text-muted;
+}
+
+.reunion__action {
+  margin-top: 1.75rem;
+}
+
+@media (max-width: $bp-wide) {
+  .reunion__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .reunion__illustration {
+    max-width: 30rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .reunion__action {
+    width: 100%;
+  }
+}

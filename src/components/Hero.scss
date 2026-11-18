@@ -1,0 +1,215 @@
+@use "../styles/variables" as *;
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(19rem, 0.95fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  width: min(#{$page-width}, 100%);
+  margin-inline: auto;
+  padding: clamp(3rem, 8vw, 6.5rem) $page-gutter $space-section;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: $radius-pill;
+  background-color: $color-accent-soft;
+  color: $color-accent-strong;
+  font-size: $font-size-caption;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.hero__title {
+  max-width: 13em;
+  margin-top: 1.25rem;
+  font-size: clamp(2.4rem, 5.6vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: $letter-spacing-display;
+  text-wrap: balance;
+}
+
+.hero__text {
+  max-width: 34rem;
+  margin-top: 1.4rem;
+  color: $color-text-muted;
+  font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.1rem;
+}
+
+// Illustration with the example card overlapping its lower edge.
+.hero__visual {
+  position: relative;
+  min-width: 0;
+}
+
+.hero__illustration {
+  box-shadow: $shadow-card;
+}
+
+// Mini interface card: a static HTML/CSS illustration, not a map.
+.hero__card {
+  position: relative;
+  max-width: 27rem;
+  margin: -3.5rem 0 0 auto;
+  padding: 1.35rem;
+  border: 1px solid $color-line;
+  border-radius: $radius-lg;
+  background-color: $color-surface-raised;
+  box-shadow: $shadow-card;
+}
+
+.hero__card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $color-line;
+}
+
+.hero__card-title {
+  font-family: $font-family-display;
+  font-size: 1.2rem;
+  font-weight: $font-weight-display;
+  letter-spacing: -0.02em;
+}
+
+.hero__chip {
+  flex: none;
+  padding: 0.2rem 0.6rem;
+  border-radius: $radius-pill;
+  background-color: $color-surface;
+  color: $color-text-muted;
+  font-size: $font-size-caption;
+  font-weight: 600;
+}
+
+.hero__marks {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero__mark {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.9rem;
+  border-radius: $radius-md;
+}
+
+.hero__mark--origin {
+  background-color: $color-accent-soft;
+}
+
+.hero__mark--witness {
+  border: 1px dashed $color-lilac;
+  background-color: $color-background;
+}
+
+.hero__shape {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.3rem;
+}
+
+// Same visual language as the map pins: circle = origin, square = witness report.
+.hero__shape--place {
+  border-radius: 50%;
+  background-color: $color-accent;
+  box-shadow: 0 0 0 4px $color-lilac;
+}
+
+.hero__shape--witness {
+  border-radius: 3px;
+  background-color: $color-lilac;
+  box-shadow: inset 0 0 0 2px $color-accent;
+}
+
+.hero__mark-body,
+.hero__mark-title,
+.hero__mark-text {
+  display: block;
+}
+
+.hero__mark-body {
+  min-width: 0;
+}
+
+.hero__mark-title {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.hero__mark-text {
+  margin-top: 0.15rem;
+  color: $color-text-muted;
+  font-size: $font-size-small;
+  line-height: 1.45;
+}
+
+.hero__mark-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin-top: 0.55rem;
+}
+
+.hero__tag {
+  padding: 0.12rem 0.5rem;
+  border-radius: $radius-pill;
+  background-color: $color-surface;
+  color: $color-text-muted;
+  font-size: $font-size-caption;
+  font-weight: 600;
+}
+
+.hero__tag--start {
+  background-color: $color-accent;
+  color: $color-on-accent;
+}
+
+.hero__tag--unconfirmed {
+  background-color: $color-surface-raised;
+  box-shadow: inset 0 0 0 1px $color-lilac;
+  color: $color-accent-strong;
+}
+
+.hero__time {
+  color: $color-text-muted;
+  font-size: $font-size-caption;
+}
+
+.hero__card-note {
+  margin-top: 1rem;
+  color: $color-text-muted;
+  font-size: $font-size-small;
+  line-height: 1.5;
+}
+
+@media (max-width: $bp-wide) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__visual {
+    max-width: 36rem;
+  }
+
+  .hero__card {
+    max-width: 32rem;
+    margin: -2.5rem 0.75rem 0;
+  }
+}

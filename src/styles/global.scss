@@ -1,0 +1,130 @@
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(#{$header-height} + 1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: $color-background;
+  color: $color-text;
+  font-family: $font-family-base;
+  font-size: $font-size-body;
+  line-height: $line-height-body;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.route-fallback {
+  margin: 2rem $page-gutter;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-family-display;
+  font-weight: $font-weight-display;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: $color-accent;
+}
+
+:focus-visible {
+  outline: 3px solid $color-focus;
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: $color-selection;
+  color: $color-text;
+}
+
+// Shared buttons (links or buttons) built on the design tokens.
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.8rem 1.35rem;
+  border: 1px solid transparent;
+  border-radius: $radius-pill;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.button--primary {
+  background-color: $color-accent;
+  color: $color-on-accent;
+}
+
+.button--primary:hover {
+  background-color: $color-accent-strong;
+}
+
+.button--secondary {
+  border-color: $color-lilac;
+  background-color: $color-surface-raised;
+  color: $color-text;
+}
+
+.button--secondary:hover {
+  border-color: $color-accent;
+}
+
+.button--on-dark {
+  background-color: $color-on-accent;
+  color: $color-deep;
+}
+
+.button--on-dark:hover {
+  background-color: $color-lilac;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}
