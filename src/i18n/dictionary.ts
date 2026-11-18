@@ -148,6 +148,28 @@ export type IllustrationName =
   | 'pawTrail'
   | 'reunion'
 
+export type FeedbackCopy = {
+  title: string
+  text: string
+  nameLabel: string
+  optional: string
+  messageLabel: string
+  required: string
+  messageHint: string
+  submit: string
+  whatsappHint: string
+  emptyError: string
+  opened: string
+  openAgain: string
+  messageIntro: string
+  messageName: string
+}
+
+export type FooterCopy = {
+  contactTitle: string
+  tagline: string
+}
+
 export type Messages = {
   brand: string
   description: string
@@ -203,6 +225,8 @@ export type Messages = {
   reunionTitle: string
   reunionText: string
   reunionAction: string
+  feedback: FeedbackCopy
+  footer: FooterCopy
   illustrations: Record<IllustrationName, string>
   loading: string
 }
@@ -454,6 +478,27 @@ export const dictionary = {
     reunionText:
       'Іздеу карточкасынан бастаңыз: соңғы көрген жер мен куәгерлердің әр хабарламасы жануарды табуға көмектеседі.',
     reunionAction: 'Іздеу карточкасын жасау',
+    feedback: {
+      title: 'Осы жерде өз пікіріңізбен бөлісе аласыз',
+      text: 'Сайт туралы пікіріңізді немесе ұсынысыңызды жазыңыз. Біз оны оқып, PettySpot-ты жақсартуға тырысамыз.',
+      nameLabel: 'Атыңыз',
+      optional: 'міндетті емес',
+      messageLabel: 'Пікір немесе ұсыныс',
+      required: 'міндетті',
+      messageHint: 'Не ұнады, не жетіспейді немесе нені өзгерту керек.',
+      submit: 'WhatsApp-та жіберу',
+      whatsappHint: 'Хабарлама WhatsApp-та ашылады — жібермес бұрын оны тексеріңіз.',
+      emptyError: 'Пікіріңізді немесе ұсынысыңызды жазыңыз.',
+      opened:
+        'WhatsApp жаңа қойындыда ашылды. Хабарлама әлі жіберілген жоқ: оны тексеріп, WhatsApp-та «Жіберу» түймесін басыңыз.',
+      openAgain: 'WhatsApp ашылмаса, осы жерді басыңыз',
+      messageIntro: 'PettySpot сайтынан пікір',
+      messageName: 'Аты',
+    },
+    footer: {
+      contactTitle: 'Байланыс нөмірі',
+      tagline: 'Жоғалған үй жануарларын бірге іздейміз.',
+    },
     illustrations: {
       nightSearch: 'Түнде қол шамымен жоғалған итті іздеп жүрген адам, жерде табан іздері',
       sadCat: 'Кешкі көше шамының астында жалғыз отырған мысық',
@@ -705,6 +750,27 @@ export const dictionary = {
     reunionText:
       'Начните с карточки поиска: последнее известное место и каждое сообщение очевидцев помогают найти питомца.',
     reunionAction: 'Создать карточку поиска',
+    feedback: {
+      title: 'Здесь можно поделиться своим мнением',
+      text: 'Напишите отзыв о сайте или предложение. Мы прочитаем его и постараемся сделать PettySpot лучше.',
+      nameLabel: 'Ваше имя',
+      optional: 'необязательно',
+      messageLabel: 'Отзыв или предложение',
+      required: 'обязательно',
+      messageHint: 'Что понравилось, чего не хватает или что стоит изменить.',
+      submit: 'Отправить в WhatsApp',
+      whatsappHint: 'Сообщение откроется в WhatsApp — проверьте его перед отправкой.',
+      emptyError: 'Напишите отзыв или предложение.',
+      opened:
+        'WhatsApp открыт в новой вкладке. Сообщение ещё не отправлено: проверьте его и нажмите «Отправить» в WhatsApp.',
+      openAgain: 'Если WhatsApp не открылся, нажмите сюда',
+      messageIntro: 'Отзыв с сайта PettySpot',
+      messageName: 'Имя',
+    },
+    footer: {
+      contactTitle: 'Контактный номер',
+      tagline: 'Ищем пропавших питомцев вместе.',
+    },
     illustrations: {
       nightSearch: 'Человек ночью ищет пропавшую собаку с фонариком, на земле следы лап',
       sadCat: 'Одинокая кошка сидит под вечерним уличным фонарём',

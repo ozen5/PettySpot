@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { Feedback } from '../components/Feedback.tsx'
+import { Footer } from '../components/Footer.tsx'
 import { Header } from '../components/Header.tsx'
 import { Hero } from '../components/Hero.tsx'
 import { HowItWorks } from '../components/HowItWorks.tsx'
@@ -31,7 +33,9 @@ export function HomePage() {
         <HowItWorks />
         <Witnesses />
         <Reunion />
+        <Feedback />
       </main>
+      <Footer />
     </div>
   )
 }
